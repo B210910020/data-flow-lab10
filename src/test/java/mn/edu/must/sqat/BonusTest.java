@@ -80,4 +80,12 @@ class BonusTest {
     void p8_exactlyThreshold() {
         assertEquals(5, DataFlowTargets.bonus(new int[] {1, 1, 1}, 3));
     }
+
+    // ---------- Part C: kills mutant M2 (best = present) ----------
+
+    @Test
+    @DisplayName("K1 [1,1,1,0,1,1] thr=1 -> 5: present=5 but best=3, so best(43) must come from streak not present")
+    void k1_killsM2_presentDiffersFromBest() {
+        assertEquals(5, DataFlowTargets.bonus(new int[] {1, 1, 1, 0, 1, 1}, 1));
+    }
 }
